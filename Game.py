@@ -16,7 +16,7 @@ jogador = Player()
 pl_group = pygame.sprite.Group()
 pl_group.add(jogador)
 
-print('teste de git')
+
 
 #functions
 def update_game():
