@@ -1,11 +1,12 @@
 import pygame
 import math
+from Bullet import Bullet
 class Player(pygame.sprite.Sprite):
     direction = 1
-    caminho_imagem = pygame.image.load('/home/jerry/Downloads/idle.png')
+    caminho_imagem = pygame.image.load('.venv/assets/idle.png')
     def __init__(self):
         global caminho_imagem 
-        caminho_imagem = pygame.image.load('/home/jerry/Downloads/idle.png')
+        caminho_imagem = pygame.image.load('.venv/assets/idle.png')
         pygame.sprite.Sprite.__init__(self)
         self.image = caminho_imagem.convert()
         self.image.fill((0, 0, 255))  # cor verde
@@ -35,6 +36,4 @@ class Player(pygame.sprite.Sprite):
             self.image = pygame.transform.flip(self.image, False, False) 
             self.rect = self.image.get_rect(center=self.rect.center)
 
-        
-            
-        #print(angle)
+    

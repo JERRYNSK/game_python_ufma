@@ -17,7 +17,6 @@ pl_group = pygame.sprite.Group()
 pl_group.add(jogador)
 
 
-
 #functions
 def update_game():
     global x_pos_player
