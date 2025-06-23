@@ -1,5 +1,6 @@
 import pygame
 from Player import Player
+from Bullet import Bullet
 pygame.init()
 #  variables
 width=800
@@ -11,11 +12,15 @@ y_pos_player = height/2
 
 
 #tem que criar uma classe pra usar o sprite... merda
-
-jogador = Player()
 pl_group = pygame.sprite.Group()
+
+#player
+jogador = Player()
 pl_group.add(jogador)
 
+#bala
+bullet = Bullet()
+pl_group.add(bullet)
 
 #functions
 def update_game():
@@ -46,6 +51,6 @@ def draw_game():
     pl_group.draw(screen)
     pygame.display.update()
 while True:
-    screen.fill((0,0,0))
+    screen.fill((100,0,0))
     update_game()
     draw_game()

@@ -1,17 +1,19 @@
 import pygame
 import math
-from Bullet import Bullet
+
 class Player(pygame.sprite.Sprite):
     direction = 1
-    caminho_imagem = pygame.image.load('.venv/assets/idle.png')
+    caminho_imagem = pygame.image.load('assets/idle.png')
     def __init__(self):
         global caminho_imagem 
-        caminho_imagem = pygame.image.load('.venv/assets/idle.png')
+        caminho_imagem = pygame.image.load('assets/idle.png')
         pygame.sprite.Sprite.__init__(self)
         self.image = caminho_imagem.convert()
         self.image.fill((0, 0, 255))  # cor verde
         self.rect = self.image.get_rect()
         self.rect.center = (100, 100)  # posição inicial
+
+        
     def update_pos(self, x, y):
         self.rect.center=(x,y)
      
@@ -20,7 +22,6 @@ class Player(pygame.sprite.Sprite):
         new_x = xm - xp
         new_y = ym - yp
         angle = math.degrees(math.atan2(-new_y,new_x))
-        #self.image = pygame.transform.rotate(caminho_imagem, -angle )
         
         #flipar se passar dos eixos:3
         #ta dando errado essa porra, deixa um top down mesmo
