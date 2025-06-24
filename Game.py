@@ -30,6 +30,7 @@ def update_game():
 
     rotate_player()
     jogador.update_pos(x_pos_player, y_pos_player)
+    bullet.update_pos(x_pos_player, y_pos_player)
     for ev in pygame.event.get():
         if ev.type == pygame.QUIT:
             pygame.quit()
