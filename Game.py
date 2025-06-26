@@ -19,21 +19,26 @@ jogador = Player()
 pl_group.add(jogador)
 
 #bala
-bullet = Bullet()
-pl_group.add(bullet)
+balas = []
+
 
 #functions
 def update_game():
     global x_pos_player
     global y_pos_player
  
-
     rotate_player()
     jogador.update_pos(x_pos_player, y_pos_player)
-    bullet.update_pos(x_pos_player, y_pos_player)
+    #bullet.update_pos(x_pos_player, y_pos_player)
     for ev in pygame.event.get():
         if ev.type == pygame.QUIT:
             pygame.quit()
+        if ev.type == pygame.MOUSEBUTTONDOWN:
+            bullet = Bullet()
+            bullet.shoot(x_pos_player, y_pos_player)
+            balas.append(bullet)
+            pl_group.add(bullet)
+
     keys = pygame.key.get_pressed()
     if keys[pygame.K_a]:
         x_pos_player -= 1
@@ -43,10 +48,19 @@ def update_game():
         y_pos_player+=1
     if keys[pygame.K_d]:
         x_pos_player+=1
+    
+    shoot()
     pl_group.update(screen)
+
+def shoot():
+    if len(balas) != 0:
+        for i in balas:
+            i.update_pos(x_pos_player, y_pos_player)
 def rotate_player():
     xm,ym = pygame.mouse.get_pos()
     jogador.rotate(xm, ym, x_pos_player, y_pos_player)
+
+
 
 def draw_game():
     pl_group.draw(screen)

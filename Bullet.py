@@ -13,24 +13,27 @@ class Bullet(pygame.sprite.Sprite):
         self.x = 0
         self.y = 0
         self.xm, self.ym = 0,0
+
+
+
+    def shoot(self, x, y):
+        self.rect.center = (x, y)
+        self.vec_dir = pygame.Vector2(x, y)
+        self.can_move = True
+        self.x, self.y = pygame.mouse.get_pos()
+        self.xm, self.ym = x,y
+        print('shooted', x, y)
     def update_pos(self,x,y):
-        
-        for ev in pygame.event.get():
-            if ev.type == pygame.MOUSEBUTTONDOWN:
-                self.can_move = True
-                self.x, self.y = pygame.mouse.get_pos()
-                self.xm, self.ym =x,y
-            if ev.type == pygame.QUIT:
-                pygame.quit()
+    
         if self.can_move:
             new_x = self.x - self.xm
             new_y = self.y - self.ym
             self.vec_dir += pygame.Vector2(new_x, new_y) * 0.04
             self.rect.center = self.vec_dir
-            print(self.vec_dir)
-        else:
-            self.rect.center = (x, y)
-            self.vec_dir = pygame.Vector2(x, y)
+            #print(self.vec_dir)
+        
+            
+            
         
 
 
