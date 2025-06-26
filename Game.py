@@ -57,7 +57,8 @@ def update_game():
 def shoot():
     if len(balas) != 0:
         for i in balas:
-            i.update_pos(x_pos_player, y_pos_player)
+            i.update_pos(x_pos_player, y_pos_player, minhoco.rect)
+
 
         
 def rotate_player():

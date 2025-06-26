@@ -23,14 +23,17 @@ class Bullet(pygame.sprite.Sprite):
         self.x, self.y = pygame.mouse.get_pos()
         self.xm, self.ym = x,y
         print('shooted', x, y)
-    def update_pos(self,x,y):
-    
+    def update_pos(self,x,y, rect):
         if self.can_move:
             new_x = self.x - self.xm
             new_y = self.y - self.ym
             self.vec_dir += pygame.Vector2(new_x, new_y).normalize() * 5
             self.rect.center = self.vec_dir
             #print(self.vec_dir)
+            #is colliding
+            if self.rect.colliderect(rect):
+                print('colidiu')
+                self.kill()
         
             
             
