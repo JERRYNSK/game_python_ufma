@@ -56,6 +56,8 @@ def shoot():
     if len(balas) != 0:
         for i in balas:
             i.update_pos(x_pos_player, y_pos_player)
+
+        
 def rotate_player():
     xm,ym = pygame.mouse.get_pos()
     jogador.rotate(xm, ym, x_pos_player, y_pos_player)
