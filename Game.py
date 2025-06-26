@@ -29,7 +29,7 @@ pl_group.add(minhoco)
 def update_game():
     global x_pos_player
     global y_pos_player
- 
+    minhoco.update_pos(x_pos_player, y_pos_player)
     rotate_player()
     jogador.update_pos(x_pos_player, y_pos_player)
     for ev in pygame.event.get():
