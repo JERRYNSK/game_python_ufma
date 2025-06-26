@@ -28,7 +28,7 @@ class Bullet(pygame.sprite.Sprite):
         if self.can_move:
             new_x = self.x - self.xm
             new_y = self.y - self.ym
-            self.vec_dir += pygame.Vector2(new_x, new_y).normalize() 
+            self.vec_dir += pygame.Vector2(new_x, new_y).normalize() * 5
             self.rect.center = self.vec_dir
             #print(self.vec_dir)
         

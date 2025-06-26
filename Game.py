@@ -1,6 +1,7 @@
 import pygame
 from Player import Player
 from Bullet import Bullet
+from Enemies import Enemies
 pygame.init()
 #  variables
 width=800
@@ -20,7 +21,9 @@ pl_group.add(jogador)
 
 #bala
 balas = []
-
+#inimigos
+minhoco = Enemies(300, 400)
+pl_group.add(minhoco)
 
 #functions
 def update_game():
@@ -29,7 +32,6 @@ def update_game():
  
     rotate_player()
     jogador.update_pos(x_pos_player, y_pos_player)
-    #bullet.update_pos(x_pos_player, y_pos_player)
     for ev in pygame.event.get():
         if ev.type == pygame.QUIT:
             pygame.quit()
